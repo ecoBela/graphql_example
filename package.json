@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@graphql-tools/load-files": "^7.0.1",
+    "@graphql-tools/schema": "^10.0.19",
     "express": "^4.21.2",
     "graphql": "^16.10.0",
     "graphql-yoga": "^5.12.1"
