@@ -3,11 +3,13 @@ const products = [
     id: "redshoe",
     description: "Red shoe",
     price: 42.99,
+    reviews: [],
   },
   {
     id: "bluejeans",
     description: "Blue jeans",
     price: 82.99,
+    reviews: [],
   },
 ];
 
@@ -25,4 +27,34 @@ function getProductById(id) {
   return products.find((product) => product.id === id);
 }
 
-module.exports = { getAllProducts, getProductsByPrice, getProductById };
+function addNewProduct(id, description, price) {
+  const newProduct = {
+    id,
+    description,
+    price,
+    reviews: [],
+  };
+  products.push(newProduct);
+  return newProduct;
+}
+
+function addNewProductReview(id, rating, comment) {
+  const matchedProduct = getProductById(id);
+
+  if (matchedProduct) {
+    const newProductReview = {
+      rating,
+      comment,
+    };
+    matchedProduct.reviews.push(newProductReview);
+    return newProductReview;
+  }
+}
+
+module.exports = {
+  getAllProducts,
+  getProductsByPrice,
+  getProductById,
+  addNewProduct,
+  addNewProductReview,
+};
